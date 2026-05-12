@@ -65,10 +65,17 @@ ram.runtime = "50M"
     autoupdate.asset.arm64 = "^meilisearch-linux-aarch64$"
 
     [resources.sources.gocv]
-    url = "https://github.com/hybridgroup/gocv/archive/refs/tags/v0.43.0.tar.gz"
-    sha256 = "bce7b9fb0583966fd2be09a5c2846f24bc721af64b1f64bb533dcc79975caa97"
+    amd64.url = "gocv/opencv:4.13.0"
+    amd64.sha256 = "aa3ff9b79b042385a208728ad92f562f1006f7af871de47d0297560a9654903f"
+    arm64.url = "ghcr.io/toeverything/affine:0.26.3"
+    arm64.sha256 = "aa3ff9b79b042385a208728ad92f562f1006f7af871de47d0297560a9654903f"
 
-    autoupdate.strategy = "latest_github_release"
+    format = "docker"
+    extract = true
+    prefetch = false
+
+    autoupdate.strategy = "latest_github_tag"
+    autoupdate.upstream = "https://github.com/hybridgroup/gocv"
 
 
     [resources.system_user]

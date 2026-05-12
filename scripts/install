@@ -62,10 +62,6 @@ popd
 
 ynh_script_progression "Prepare scanner deps..."
 ynh_setup_source --dest_dir="$install_dir/gocv" --source_id="gocv"
-pushd "$install_dir"/gocv
-    make install
-popd
-
 
 ynh_script_progression "Building scanner..."
 pushd "$install_dir"/scanner
