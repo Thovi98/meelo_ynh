@@ -80,7 +80,7 @@ ram.runtime = "50M"
     matcher.default = 6789
 
     [resources.apt]
-    packages = "postgresql, postgresql-contrib, postgresql-postgis, python3, python3-venv, ffmpeg"
+    packages = "postgresql, postgresql-contrib, postgresql-postgis, python3, python3-venv, ffmpeg, libopencv-dev"
 
     [resources.database]
     type = "postgresql"
