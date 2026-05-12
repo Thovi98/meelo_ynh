@@ -89,7 +89,7 @@ ram.runtime = "50M"
 
     [resources.ports]
     main.default = 3000
-    server.default = 4000
+    api.default = 4000
     scanner.default = 5000
     matcher.default = 6789
 
