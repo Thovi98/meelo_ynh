@@ -64,7 +64,7 @@ ram.runtime = "50M"
     autoupdate.asset.amd64 = "^meilisearch-linux-amd64$"
     autoupdate.asset.arm64 = "^meilisearch-linux-aarch64$"
 
-    [resources.gocv]
+    [resources.sources.gocv]
     url = "https://github.com/hybridgroup/gocv/archive/refs/tags/v0.43.0.tar.gz"
     sha256 = "bce7b9fb0583966fd2be09a5c2846f24bc721af64b1f64bb533dcc79975caa97"
 
