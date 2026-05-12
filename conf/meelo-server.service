@@ -1,14 +1,17 @@
 [Unit]
-Description=Small description of the service
+Description=__APP__ server service
 After=network.target
 
 [Service]
 Type=simple
+Restart=always
 User=__APP__
 Group=__APP__
-WorkingDirectory=__INSTALL_DIR__/
-ExecStart=__INSTALL_DIR__/script
-StandardOutput=append:/var/log/__APP__/__APP__.log
+EnvironmentFile=__INSTALL_DIR__/.env
+WorkingDirectory=__INSTALL_DIR__/server/
+Environment="PATH=__PATH_WITH_NODEJS__"
+ExecStart=__NODEJS_DIR__/corepack yarn run prisma migrate dev && yarn run start:prod
+StandardOutput=append:/var/log/__APP__/__APP__-server.log
 StandardError=inherit
 
 ### Depending on specificities of your service/app, you may need to tweak these
