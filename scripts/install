@@ -54,8 +54,8 @@ popd
 
 pushd "$install_dir"/matcher
     ynh_exec_as_app python3 -m venv venv
-    ynh_hide_warnings ynh_exec_as_app "$install_dir/venv/bin/pip" install --upgrade pip 
-    ynh_hide_warnings ynh_exec_as_app "$install_dir/venv/bin/pip" install -r ./requirements.txt
+    ynh_hide_warnings ynh_exec_as_app "$install_dir/matcher/venv/bin/pip" install --upgrade pip 
+    ynh_hide_warnings ynh_exec_as_app "$install_dir/matcher/venv/bin/pip" install -r ./requirements.txt
 popd
 
 pushd "$install_dir"/scanner
