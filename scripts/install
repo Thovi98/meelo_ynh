@@ -60,6 +60,13 @@ pushd "$install_dir"/matcher
     ynh_hide_warnings ynh_exec_as_app "$install_dir/matcher/venv/bin/pip" install -r ./requirements.txt
 popd
 
+ynh_script_progression "Prepare scanner deps..."
+ynh_setup_source --dest_dir="$install_dir/gocv" --source_id="gocv"
+pushd "$install_dir"/gocv
+    make install
+popd
+
+
 ynh_script_progression "Building scanner..."
 pushd "$install_dir"/scanner
     ynh_hide_warnings ynh_exec_as_app bash dl_watcher.sh

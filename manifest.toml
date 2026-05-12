@@ -48,7 +48,7 @@ ram.runtime = "50M"
     url = "https://github.com/Arthi-chaud/Meelo/archive/refs/tags/v3.11.0.tar.gz"
     sha256 = "7dcbf1531c0c8086107d1fb9d953e3a4d599ea631c62d67ed08a32378c9468e9"
 
-    autoupdate.strategy = "latest_github_tag"
+    autoupdate.strategy = "latest_github_release"
 
     [resources.sources.meili]
     amd64.url = "https://github.com/meilisearch/meilisearch/releases/download/v1.43.0/meilisearch-linux-amd64"
@@ -63,6 +63,13 @@ ram.runtime = "50M"
     autoupdate.upstream = "https://github.com/meilisearch/meilisearch"
     autoupdate.asset.amd64 = "^meilisearch-linux-amd64$"
     autoupdate.asset.arm64 = "^meilisearch-linux-aarch64$"
+
+    [resources.gocv]
+    url = "https://github.com/hybridgroup/gocv/archive/refs/tags/v0.43.0.tar.gz"
+    sha256 = "bce7b9fb0583966fd2be09a5c2846f24bc721af64b1f64bb533dcc79975caa97"
+
+    autoupdate.strategy = "latest_github_release"
+
 
     [resources.system_user]
 
