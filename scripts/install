@@ -46,7 +46,7 @@ ynh_script_progression "Installing dependencies..."
 #    ynh_hide_warnings ynh_exec_as_app NODE_ENV=production CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS="--max-old-space-size=3000" yarn install --immutable
 #    ynh_hide_warnings ynh_exec_as_app NODE_ENV=production CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS="--max-old-space-size=3000" yarn run build && yarn workspaces focus --all --production
 #popd
-
+ls -lah $install_dir/prebuild
 mv $install_dir/prebuild/server $install_dir/server
 
 #ynh_script_progression "Building front..."
