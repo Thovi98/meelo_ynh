@@ -61,15 +61,15 @@ pushd "$install_dir"/meelo/matcher
     ynh_hide_warnings ynh_exec_as_app "$install_dir/meelo/matcher/venv/bin/pip" install -r ./requirements.txt
 popd
 
-ynh_script_progression "Prepare scanner deps..."
-ynh_setup_source --dest_dir="$install_dir/gocv" --source_id="gocv"
+#ynh_script_progression "Prepare scanner deps..."
+#ynh_setup_source --dest_dir="$install_dir/gocv" --source_id="gocv"
 
-ynh_script_progression "Building scanner..."
-pushd "$install_dir"/meelo/scanner
-    ynh_hide_warnings ynh_exec_as_app bash dl_watcher.sh
-    ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 CGO_CXXFLAGS="-std=c++17" GOOS=linux go mod download
-    ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 CGO_CXXFLAGS="-std=c++17" GOOS=linux go build -o "$install_dir/meelo/scanner/scanner" ./app
-popd
+#ynh_script_progression "Building scanner..."
+#pushd "$install_dir"/meelo/scanner
+#    ynh_hide_warnings ynh_exec_as_app bash dl_watcher.sh
+#    ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 CGO_CXXFLAGS="-std=c++17" GOOS=linux go mod download
+#    ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 CGO_CXXFLAGS="-std=c++17" GOOS=linux go build -o "$install_dir/meelo/scanner/scanner" ./app
+#popd
 
 chown -R $app:$app "$install_dir/"
 
