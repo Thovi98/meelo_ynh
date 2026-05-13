@@ -47,6 +47,7 @@ ram.runtime = "50M"
     [resources.sources.main]
     amd64.url = "https://github.com/Thovi98/meelo-builds/releases/download/3.11.0/meelo-3.11.0-bookworm-amd64.tar.gz"
     amd64.sha256 = "aa162be44ce7caca3ddc5e2391ecdf47e1e35aa747e2f1539adb42b0f3bdc410"
+    in_subdir = true
 
     autoupdate.strategy = "latest_github_release"
 
