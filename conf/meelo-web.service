@@ -8,7 +8,7 @@ Restart=always
 User=__APP__
 Group=__APP__
 EnvironmentFile=__INSTALL_DIR__/.env
-WorkingDirectory=__INSTALL_DIR__/front/
+WorkingDirectory=__INSTALL_DIR__/meelo/front/
 Environment="PATH=__PATH_WITH_NODEJS__"
 ExecStart=__NODEJS_DIR__/corepack yarn start:web:prod
 StandardOutput=append:/var/log/__APP__/__APP__-web.log

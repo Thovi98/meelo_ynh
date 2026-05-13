@@ -8,8 +8,8 @@ Restart=always
 User=__APP__
 Group=__APP__
 EnvironmentFile=__INSTALL_DIR__/.env
-WorkingDirectory=__INSTALL_DIR__/matcher/
-ExecStart=__INSTALL_DIR__/matcher/venv/bin/fastapi run matcher --port __PORT_MATCHER__
+WorkingDirectory=__INSTALL_DIR__/meelo/matcher/
+ExecStart=__INSTALL_DIR__/meelo/matcher/venv/bin/fastapi run matcher --port __PORT_MATCHER__
 StandardOutput=append:/var/log/__APP__/__APP__-matcher.log
 StandardError=inherit
 

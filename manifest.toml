@@ -47,7 +47,6 @@ ram.runtime = "50M"
     [resources.sources.main]
     amd64.url = "https://github.com/Thovi98/meelo-builds/releases/download/3.11.0/meelo-3.11.0-bookworm-amd64.tar.gz"
     amd64.sha256 = "aa162be44ce7caca3ddc5e2391ecdf47e1e35aa747e2f1539adb42b0f3bdc410"
-    in_subdir = true
 
     autoupdate.strategy = "latest_github_release"
 
@@ -68,7 +67,7 @@ ram.runtime = "50M"
     [resources.sources.gocv]
     amd64.url = "gocv/opencv:4.13.0"
     amd64.sha256 = "aa3ff9b79b042385a208728ad92f562f1006f7af871de47d0297560a9654903f"
-    arm64.url = "ghcr.io/toeverything/affine:0.26.3"
+    arm64.url = "gocv/opencv:4.13.0"
     arm64.sha256 = "aa3ff9b79b042385a208728ad92f562f1006f7af871de47d0297560a9654903f"
 
     format = "docker"

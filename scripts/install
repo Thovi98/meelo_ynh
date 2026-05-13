@@ -22,7 +22,7 @@ ynh_app_setting_set --key=meili_master_key --value=$meili_master_key
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-ynh_setup_source --dest_dir="$install_dir"/prebuild
+ynh_setup_source --dest_dir="$install_dir"
 ynh_setup_source --dest_dir="$install_dir/meilisearch" --source_id="meili"
 
 chmod +x "$install_dir/meilisearch/meilisearch"
@@ -46,33 +46,29 @@ ynh_script_progression "Installing dependencies..."
 #    ynh_hide_warnings ynh_exec_as_app NODE_ENV=production CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS="--max-old-space-size=3000" yarn install --immutable
 #    ynh_hide_warnings ynh_exec_as_app NODE_ENV=production CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS="--max-old-space-size=3000" yarn run build && yarn workspaces focus --all --production
 #popd
-ls -lah $install_dir/prebuild
-mv $install_dir/prebuild/server $install_dir/server
+ls -lah $install_dir
 
 #ynh_script_progression "Building front..."
 #pushd "$install_dir"/front
 #    ynh_hide_warnings ynh_exec_as_app NODE_ENV=production CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS="--max-old-space-size=3000" yarn workspaces focus -A 
 #    ynh_hide_warnings ynh_exec_as_app NODE_ENV=production CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS="--max-old-space-size=3000" yarn build:web
 #popd
-mv $install_dir/prebuild/front $install_dir/front
 
-mkdir $install_dir/matcher
 ynh_script_progression "Building matcher..."
-pushd "$install_dir"/prebuild/matcher
-    ynh_exec_as_app python3 -m venv $install_dir/matcher/venv
-    ynh_hide_warnings ynh_exec_as_app "$install_dir/matcher/venv/bin/pip" install --upgrade pip 
-    ynh_hide_warnings ynh_exec_as_app "$install_dir/matcher/venv/bin/pip" install -r ./requirements.txt
+pushd "$install_dir"/meelo/matcher
+    ynh_exec_as_app python3 -m venv $install_dir/meelo/matcher/venv
+    ynh_hide_warnings ynh_exec_as_app "$install_dir/meelo/matcher/venv/bin/pip" install --upgrade pip 
+    ynh_hide_warnings ynh_exec_as_app "$install_dir/meelo/matcher/venv/bin/pip" install -r ./requirements.txt
 popd
 
 ynh_script_progression "Prepare scanner deps..."
 ynh_setup_source --dest_dir="$install_dir/gocv" --source_id="gocv"
 
-mkdir $install_dir/scanner
 ynh_script_progression "Building scanner..."
-pushd "$install_dir"/prebuild/scanner
+pushd "$install_dir"/meelo/scanner
     ynh_hide_warnings ynh_exec_as_app bash dl_watcher.sh
     ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 CGO_CXXFLAGS="-std=c++17" GOOS=linux go mod download
-    ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 CGO_CXXFLAGS="-std=c++17" GOOS=linux go build -o "$install_dir/scanner/scanner" ./app
+    ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 CGO_CXXFLAGS="-std=c++17" GOOS=linux go build -o "$install_dir/meelo/scanner/scanner" ./app
 popd
 
 chown -R $app:$app "$install_dir/"
